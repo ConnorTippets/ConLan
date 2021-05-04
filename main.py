@@ -1,8 +1,7 @@
 import os
 
 class ConLan:
-    def __init__(self, bot):
-        self.bot = bot
+    def __init__(self):
         self.var_dict = {}
         self.file_dict = {}
         for f in os.listdir('.'):
@@ -63,7 +62,7 @@ class ConLan:
                     mod = code[x][7:]
                     if mod+'.cli' in os.listdir('.'):
                         file = self.file_dict[mod+'.cli']
-                        recur = ConLan(self.bot)
+                        recur = ConLan()
                         recur_out = await recur.run(file)
                         output.append(recur_out)
                         self.var_dict.update(recur.var_dict)
