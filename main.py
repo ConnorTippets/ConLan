@@ -13,7 +13,7 @@ class ConLan:
                 except (UnicodeDecodeError, PermissionError):
                     continue
     
-    async def run(self, code):
+    def run(self, code):
         output = []
         if code.__class__.__name__ == 'list':
             pass
