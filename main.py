@@ -18,7 +18,7 @@ class ConLan:
         if code.__class__.__name__ == 'list':
             pass
         else:
-            code = code.split('\n')
+            code = code.strip('\n').split('\n')
             for x in range(len(code)):
                 if code[x].startswith('var'):
                     format = code[x][4:]
