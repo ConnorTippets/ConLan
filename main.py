@@ -23,6 +23,7 @@ class ConLan:
                 if code[x].startswith('var'):
                     format = code[x][4:]
                     name, content = format.split(':')
+                    content = content.strip(' ')
                     if content.startswith('"'):
                         self.var_dict[name] = content.replace('"', '')
                     elif content.startswith('%'):
