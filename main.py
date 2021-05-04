@@ -52,10 +52,10 @@ class ConLan:
                 elif code[x].startswith('eval'):
                     expr = code[x][5:]
                     if expr.startswith('"'):
-                        output.append(await self.run(expr.removesuffix('"').removeprefix('"')))
+                        output.append(self.run(expr.removesuffix('"').removeprefix('"')))
                     elif expr.startswith("%"):
                         try:
-                            output.append(await self.run(self.var_dict[expr.replace("%", "")]))
+                            output.append(self.run(self.var_dict[expr.replace("%", "")]))
                         except KeyError:
                             return f'NameError: "{expr.replace("%", "")}" does not exist'
                 elif code[x].startswith('import'):
@@ -63,7 +63,7 @@ class ConLan:
                     if mod+'.cli' in os.listdir('.'):
                         file = self.file_dict[mod+'.cli']
                         recur = ConLan()
-                        recur_out = await recur.run(file)
+                        recur_out = recur.run(file)
                         output.append(recur_out)
                         self.var_dict.update(recur.var_dict)
                     else:
