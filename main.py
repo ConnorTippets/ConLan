@@ -10,7 +10,7 @@ class ConLan:
                     file = open(f, 'r')
                     self.file_dict[f] = file.read()
                     file.close()
-                except (UnicodeDecodeError, PermissionError):
+                except (IsADirectoryError, UnicodeDecodeError, PermissionError):
                     continue
     
     def run(self, code):
